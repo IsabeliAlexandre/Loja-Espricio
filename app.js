@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
+const { } = require("./src/routes/clientesRoutes")
 const { } = require("./src/routes/produtosRoutes")
+const {clientesRoutes} = require("./src/routes/clientesRoutes");
 const {produtosRoutes} = require("./src/routes/produtosRoutes");
 
 const PORT = 8081;
 
 app.use(express.json());
-
+app.use('/', clientesRoutes);
 app.use('/', produtosRoutes);
 
 app.listen(PORT, ()=> {
