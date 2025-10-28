@@ -28,7 +28,7 @@ const produtoController = {
                 
                 if (idProduto.length != 36) {
 
-                    return res.status(400).json({ erro: 'inválido' })
+                    return res.status(400).json({ erro: 'ID inválido' })
                 }
                 const produto = await produtoModel.buscarUm(idProduto);
 
@@ -108,7 +108,7 @@ const produtoController = {
             await produtoModel.atualizarProdutos(idProduto, nomeAtualizado, precoAtualizado);
             res.status(200).json({ message: 'Produto atualizado com sucesso' });
         } catch (error) {
-            console.error
+            console.error('Erro ao atualizar produto:', error);
             res.status(500).json({ error: 'Erro no servidor ao atualizar produtos' });
         }
 
